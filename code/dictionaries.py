@@ -152,3 +152,14 @@ print(my_d[19.0])
 my_d = dict(name="Can", age=26)
 for i, k in my_d.items():
     print(i, k)
+
+print({i: i ** 2 for i in range(5)})
+
+payload = {
+    "url": "https://www.google.com",
+    "Content-Type": "application/json",
+    "auth": "some_bearer_token",
+}
+
+if "url" in payload and payload["url"]:
+    print("It exists.")

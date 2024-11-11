@@ -119,3 +119,36 @@ blank_d = {
 
 d.update(blank_d)
 print(d)
+
+# Mutable types can't be used as dictionary keys such as lists, sets,
+# dictionaries.
+my_d = {
+    "name": "Can",
+    "age": 26,
+    19: 25,
+}
+
+print(my_d["name"])
+# Values that compare equal (such as 1, 1.0, and True) can be used
+# interchangeably to index the same dictionary entry.
+print(my_d[19])
+print(my_d[19.0])
+
+# class dict(**kwargs)
+# class dict(mapping, **kwargs)
+# class dict(iterable, **kwargs)
+# Return a new dictionary initialized from an optional positional argument and
+# a possible empty set of keyword arguments.
+
+# Dictionaries can be created by several means:
+
+# Use a comma-seperated list of key: value pairs within braces: {"jack": 4098,
+# "sjoerd": 4127} or {4098: "jack", 4127: "sjoerd"}
+
+# Use a dict comprehension: {}, {x: x ** 2 for x in range(10)}
+# Use the type constructor: dict(), dict([("foo", 100), ("bar", 200)]),
+# dict(foo=100, bar=200)
+
+my_d = dict(name="Can", age=26)
+for i, k in my_d.items():
+    print(i, k)

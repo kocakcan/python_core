@@ -163,3 +163,19 @@ payload = {
 
 if "url" in payload and payload["url"]:
     print("It exists.")
+
+"""
+- If no positional argument is given, an empty dictionary is created.
+- If it is given and it defines a keys() method, a dictionary is created by
+calling __getitem__() on the argument with each returned key from the method.
+- Otherwise, the positional argument must be an iterable object. 
+- Each item in the iterable must itself be an iterable with exactly two elements.
+- The first element of each item becomes a key in the new dictionary, and the
+second element the corresponding value.
+- If a key occurs more than once, the last value for that key becomes the corresponding value in the new dictionary.
+- If keyword arguments are given, the keyword arguments and their values are
+added to the dictionary created from the positional argument.
+- If a key being added is already present, the value from the keyword argument
+replaces the value from the positional argument.
+""""
+

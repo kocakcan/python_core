@@ -177,5 +177,12 @@ second element the corresponding value.
 added to the dictionary created from the positional argument.
 - If a key being added is already present, the value from the keyword argument
 replaces the value from the positional argument.
-""""
+"""
 
+a = dict(one=1, two=2, three=3)
+b = {"one": 1, "two": 2, "three": 3}
+c = dict(zip(["one", "two", "three"], [1, 2, 3]))
+dicts = [a, b, c]
+
+for dict in dicts:
+    print(dict)

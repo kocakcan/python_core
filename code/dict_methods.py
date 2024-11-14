@@ -153,3 +153,68 @@ except KeyError:
     Return a reverse iterator over the keys of the dictionary. This is a
     shortcut for reversed(d.keys())
 """
+for key in reversed(player):
+    print(key)
+
+"""
+    setdefault(key, default=None)
+    If key is in the dictionary, return its value. If not, insert key with a
+    value of default and return default. default defaults to None.
+"""
+print(player.setdefault("paragon_level", 237))
+
+"""
+    update([other])
+    Update the dictionary with the key/value pairs from other, overwriting
+    existing keys. Return None.
+
+    update() accepts either another object with a keys() method or an iterable
+    of key/value pairs (as tuples or other iterables of length two.). If
+    keyword arguments are specified, the dictionary is then updated with those
+    key/value pairs: d.update(red=1, blue=2)
+"""
+player.update(clan="Groots")
+print(player)
+
+"""
+    values()
+    Return a new view of the dictionary's values.
+
+    An equality comparison between one dict.values() view and another will
+    always return False. This also applies when comparing dict.values() to
+    itself.
+"""
+d = {'a': 1}
+print(d.values() == d.values())
+
+"""
+    d | other
+    Create a new dictionary with the merged keys and values of d and other,
+    which must both be dictionaries. The values of other take priorit when d
+    and other share keys.
+"""
+d2 = {'b': 2}
+print(d | d2)
+
+"""
+    d |= other
+    Update the dictionary d with keys and values from other, which may be
+    either a mapping or an iterable of key/value pairs. The values of other
+    take priority when d and other share keys.
+"""
+
+# Dictionaries compare equal if and only if they have same (key, value) pairs
+# (regardless of ordering). Order comparisons ('<', '<=', '>', '>=') raises
+# TypeError.
+
+# Dictionaries preserve insertion order. Note that updating a key does not
+# affect the order. Keys added after deletion are inserted at the end.
+d = {"one": 1, "two": 2, "three": 3, "four": 4}
+print(d)
+print(list(d))
+print(list(d.values()))
+d["one"] = 42
+print(d)
+del d["two"]
+d["two"] = None
+print(d)

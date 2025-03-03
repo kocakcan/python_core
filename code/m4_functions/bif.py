@@ -132,7 +132,46 @@ def main():
     """
 
     print(bool([]))
+    print(bool(set()))
 
+    """
+    breakpoint(*args, **kws)
+
+    - This function drops you into the debugger at the call site. Specifically,
+      it calls sys.breakpointhook(), passing args and kws straight through.
+    - By default, sys.breakpointhook() calls pdb.set_trace() expecting no
+      arguments. In this case, it is purely a convenience function so you don't
+      have to explicitly import pdb or type as much code to enter the debugger.
+    - However, sys.breakpointhook() can be set to some other function and
+      breakpoint() will automatically call that, allowing you to drop into the
+      debugger of choice.
+    - If sys.breakpointhook() is not accessible, this function will raise
+      RuntimeError.
+    """
+
+    """
+    class bytearray(source='b')
+    class bytearray(source, encoding)
+    class bytearray(source, encoding, errors)
+
+    - Return a new array of bytes.
+    - The bytearray class is a mutable sequence of integers in the range 0 <= x
+      <= 256. It has the most of the usual methods of mutable sequences, as
+      well as most methods that the bytes type has.
+    - If it is a string, you must also give the encoding (and optionally,
+      errors) parameters; bytearray() then converts the string to bytes using
+      str.encode()
+    - If it is an integer, the array will have that size and will be
+      initialized with null bytes.
+    - If it is an object conforming to the buffer interface, a read-only buffer
+      of the object will be used as the initial contents of the array.
+    - Without an argument, an array of size 0 is created.
+    """
+
+    arr = bytearray(5)
+
+    for _ in arr:
+        print(_)
 
 if __name__ == "__main__":
     main()

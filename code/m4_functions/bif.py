@@ -8,6 +8,14 @@ class People:
     def __abs__(self):
         return abs(self.age)
 
+    @classmethod
+    def do_sth(cls):
+        print("Engineers are doing something right now!")
+
+
+def is_even(x):
+    return x % 2 == 0
+
 def main():
     """
     abs(x)
@@ -172,6 +180,147 @@ def main():
 
     for _ in arr:
         print(_)
+
+    """
+    class bytes(source=b'')
+    class bytes(source, encoding)
+    class bytes(source, encoding, errors)
+
+    - Return a new "bytes" object which is an immutable sequence of integers in
+      the range 0 <= x <= 256.
+    - bytes is an immutable version of bytearry - it has the same non-mutating
+      methods and the same indexing and slicing behaviour.
+    - Accordingly, constructor arguments are interpreted as for bytearray().
+    - Bytes objects can also be created with literals.
+    """
+
+    four_bytes = bytes(4)
+
+    for _ in four_bytes:
+        print(_)
+
+    """
+    callable(object)
+
+    - Return True if the object argument appears callable, False if not.
+    - If this returns True, it is still possible that a call fails, but if it
+      is False, calling object will never succeed.
+    - Note that classes are callable (calling a class returns a new instance);
+      instances are callable if their class has a __call__() method.
+    """
+
+    print("Is print() callable?", callable(print))
+
+    """
+    chr(i)
+
+    - Return the string representing a character whose Unicode code point is
+      integer i.
+    - For example, chr(97) returns the string 'a'. This is the inverse of
+      ord().
+    """
+    if chr(65) == 'A':
+        print("It's true")
+
+    """
+    @classmethod
+
+    - Transform a method into a class method.
+    - A class method receives the class as an implicit first argument, just
+      like an instance method receives the instance.
+    - To declare a class method, use this idiom:
+
+      class C:
+      @classmethod
+      def f(cls, arg1, arg2): ...
+
+    - The @classmethod form is a function decorator.
+    - A class method can be called either on the class (such as C.f()) or on an
+      instance (such as C().f()). The instance is ignored except for its class.
+      If a class method is called for a derived class, the derived class object
+      is passed as the implied first argument.
+    - Class methods are different than C++ and Java static methods. If it's
+      what you're looking for, then use @staticmethod.
+    """
+
+    # class method example
+    People.do_sth()
+
+    """
+    compile(source, filename, mode, flags=0, dont_inherit=False, optimize=-1)
+
+    - Compile the source into a code or AST object.
+    - Code objects can be executed by exec() or eval().
+    - source can either be a normal string, a byte string, or an AST object.
+    """
+
+    """
+    class complex(number=0, /)
+    class complex(string, /)
+    class complex(real=0, imag=0)
+
+    - Convert a single string or number to a complex number, or create a
+      complex number from real and imaginary parts.
+    """
+
+    print(complex("1+3j"))
+    print(complex("-Infinity+NaNj"))
+
+    """
+    delattr(object, name)
+
+    - This is a relative of setattr(). The arguments are an object and a
+      string. The string must be the name of one of the object's attributes.
+    - The function deletes the named attribute, provided the object allows it.
+    - For example, delattr(x, "foobar") is equivalent to del x.foobar.
+    - Name need not be a Python identifier.
+    """
+    
+    """
+    enumerate(iterable, start=0)
+
+    - Return an enumerate object. iterable must be a sequence, an iterator, or
+      some other object which supports iteration.
+    - The __next__() method of the iterator returned by enumerate() returns a
+      tuple containing a count (from start which is default to 0) and the
+      values obtained from iterating the iterable.
+    - Equivalent to:
+
+      def enumerate(iterable, start=0):
+        n = start
+        for elem in iterable:
+            yield n, item
+            n += 1
+    """
+
+    seasons = ["Spring", "Summer", "Fall", "Winter"]
+    print(list(enumerate(seasons)))
+
+    """
+    filter(function, iterable)
+
+    - Construct an iterator from those elements of iterable for which function
+      is true. iterable may be either a sequence, a container which supports
+      iteration, or an iterator.
+    - If function is None, the identity function is assumed, that is, all
+      elements of iterable that are false are removed.
+    - filter(function, iterable) is equivalent to (item for item in iterable if
+      function(item))
+    """
+    print(list(filter(is_even, range(0, 50))))
+
+    """
+    format(value, format_spec="")
+
+    - Convert a value to a "formatted" representation, as controlled by
+      format_spec.
+    - The interpretation of format_spec will depend on the type of the value
+      argument; however, there is a standard formatting syntax that is used by
+      most built-in types.
+    - The default format_spec is an empty string which usually gives the same
+      effect as calling str(value).
+    """
+
 
 if __name__ == "__main__":
     main()

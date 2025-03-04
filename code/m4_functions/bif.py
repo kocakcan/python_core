@@ -320,6 +320,129 @@ def main():
     - The default format_spec is an empty string which usually gives the same
       effect as calling str(value).
     """
+    print("My name is {}".format(can.name))
+
+    """
+    globals()
+
+    - Return the dictionary implementing the current module namespace.
+    - For code with functions, this is set when the function is defined and
+      remains the same regardless of where the function is called.
+    """
+
+    print(globals())
+
+    """
+    hash(object)
+
+    - Return the hash value of the object (if it has one).
+    - Hash values are integers. They are used to quickly compare dictionary
+      keys during a dictionary lookup.
+    - Numeric values that compare equal have the same hash value (even if they
+      are of different types, as is the case for 1 and 1.0)
+    """
+    print(hash(1) == hash(1.0))
+
+    """
+    hex(x)
+
+    - Convert an integer number to a lowercase hexadecimal string prefixed with
+      "0x". If x is not a Python int object, it has to define __index__()
+      method that returns an integer.
+    """
+    print(hex(255))
+
+    # If you want to convert an integer number to an uppercase or lower
+    # hexadecimal string with prefix or not, you can use either of the
+    # following ways:
+
+    print("%#x" % 255)
+    print("%x" % 255)
+    print("%X" % 255)
+    print(format(255, "#x"))
+    print(format(255, "x"))
+    print(format(255, "X"))
+    print(f"{255:#x}")
+    print(f"{255:x}")
+    print(f"{255:X}")
+
+    """
+    id(object)
+
+    - Return the "identity" of an object. This is an integer which is
+      guaranteed to be unique and constant for this object during its lifetime.
+      Two objects with non-overlapping lifetimes may have the same id() value.
+    - This is the address of the object in memory.
+    """
+    x = list(range(0, 15, 3))
+
+    for _ in x:
+        print(id(_))
+
+    """
+    input()
+    input(prompt)
+
+    - If the prompt argument is present, it is written to standard output
+      without a trailing whiteline. The function then reads a line from input,
+      converts it to a string (stripping a trailing whiteline), and returns
+      that.
+    - When EOF is read, EOFError is raised.
+    """
+    # name = input("What's your name? ")
+    # print(f"My name is {name} yo yo")
+    
+    """
+    isinstance(object, classinfo)
+
+    - Return True if the object argument is an instance of the classinfo
+      argument, or of a (direct, indirect, or virtual) subclass thereof.
+    - If object is not an object of given type, the function always returns
+      False.
+    - If classinfo is a tuple of the type objects (or recursively, other
+      such tuples) or a Union Type of multiple types, return True if object is
+      an instance of any of the types.
+    - If classinfo is not a type or tuple of types and such tuples, a TypeError
+      exception is raised. TypeError may not be raised for an invalid type if
+      an earlier check succeeds.
+    """
+    print(isinstance(can, People))
+
+    """
+    issubclass(class, classinfo)
+
+    - Return True if a class is a subclass (direct, indirect, or virtual) of
+      classinfo. A class is considered a subclass of itself.
+    - classinfo may be a tuple of class objects (or recursively, other such
+      tuples) or a Union Type, in which case return True if class is a subclass
+      of any entry in classinfo. In any other case, a TypeError exception is
+      raised.
+    """
+
+    print(issubclass(People, object))
+
+    """
+    iter(object)
+    iter(object, sentinel)
+
+    - Return an iterator object.
+    - The first argument is interpreted very differently depending on the
+      presence of the second argument. Without a second argument, object must
+      be a collection object which supports the iterable protocol (the
+      __iter__() method), or it must support the sequence protocol (__getitem__()
+      method with integer arguments starting at 0).
+    - If it does not support either of those protocols, TypeError is raised. If
+      the second argument, sentinel, is given, then object must be a callable
+      object. The iterator created in this case will call object with no
+      arguments for each call to its __next__() method; if the value returned
+      is equal to sentinel, StopIteration will be raised, otherwise the value
+      will be returned.
+    """
+
+    items = ["Mea Culpa", "Prayer", "Rosary Beads", "Collectibles"]
+    my_iterator = iter(items)
+
+    print(next(my_iterator))
 
 
 if __name__ == "__main__":

@@ -16,6 +16,9 @@ class People:
 def is_even(x):
     return x % 2 == 0
 
+def add_five(x):
+    return x + 5
+
 def main():
     """
     abs(x)
@@ -444,6 +447,226 @@ def main():
 
     print(next(my_iterator))
 
+    """
+    len(object)
+
+    - Return the length (the number of items) of an object.
+    - The argument may be a sequence (such as a string, bytes, tuple, list, or
+      range) or a collection (such as dictionary, set, or frozenset).
+    """
+    print(len(items))
+
+    """
+    map(function, iterable, *iterables)
+
+    - Return an iterator that applies function to every item of iterable,
+      yielding the results.
+    - If additional iterables arguments are passed, function must take that
+      many arguments and is applied to the items from all iterables in
+      parallel.
+    - With multiple iterables, the iterator stops when the shortest iterable is
+      exhausted.
+    """
+    even_numbers = list(range(0, 50, 2))
+    print(even_numbers)
+    print(list(map(add_five, even_numbers)))
+
+    """
+    max(iterable, *, key=None)
+    max(iterable, *, default, key=None)
+    max(arg1, arg2, *args, key=None)
+
+    - Return the largest item in an iterable or the largest of two or more
+      arguments.
+    - If one positional argument is provided, it should be an iterable.
+    - The largest item in the iterable is returned. If two or more positional
+      arguments are provided, the largest of the positional arguments is
+      returned.
+    - There are two optional keyword-only arguments. The key argument specifies
+      a one-argument ordering function like that used for list.sort().
+    - The default argument specifies an object to return if the provided
+      iterable is empty. If the iterable is empty and default is not provided,
+      a ValueError is raised.
+    - If multiple items are maximal, the function returns the first one
+      encountered.
+    """
+    print(max(even_numbers))
+
+    """
+    min(iterable, *, key=None)
+    min(iterable, *, default, key=None)
+    min(arg1, arg2, *args, key=None)
+
+    - Return the smallest item in an iterable or the smallest of two or more
+      arguments.
+    - If one positional argument is provided, it should be an iterable. 
+      The smallest item in the iterable is returned. 
+      If two or more positional arguments are provided, the smallest of the positional arguments is returned.
+    - There are two optional keyword-only arguments. 
+    - The key argument specifies a one-argument ordering function like that used for list.sort(). 
+    - The default argument specifies an object to return if the provided iterable is empty. 
+    - If the iterable is empty and default is not provided, a ValueError is raised.
+    - If multiple items are minimal, the function returns the first one encountered.
+    """
+    print(min(even_numbers))
+
+    """
+    next(iterator)
+    next(iterator, default)
+
+    - Retrieve the next item from the iterator by calling its __next__()
+      method.
+    - If default is given, it is returned if the iterator is exhausted,
+      otherwise StopIteration is raised.
+    """
+    while True:
+        try:
+            print(next(my_iterator))
+        except StopIteration:
+            print("Iterator has been exhausted")
+            break
+
+    """
+    class object()
+
+    - This is the ultimate class of all other classes. It has methods that are
+      common to all instances of Python classes.
+    - When the constructor is called, it returns a new featureless object. The
+      constructor does not accept any arguments.
+    """
+
+    obj = object()
+    print(type(obj))
+    print(issubclass(object, object))
+
+    """
+    open(file, mode='r', buffering=-1, encoding=None, errors=None,
+    newline=None, closefd= None, opener=None)
+
+    - Open file and return a corresponding file object. If the file cannot be
+      opened, an OSError is raised.
+    - file is a path-like object giving the pathname (absolute or relative to
+      the current working directory) of the file to be opened or an integer
+      file descriptor of the file to be wrapped.
+    - mode is an optional string that specifies the mode in which the file is
+      opened. It defaults to 'r' which means open for reading in text mode.
+      Other common values are 'w' for writing (truncating the file it already
+      exists), 'x' for exclusive creation, and 'a' for appending.
+    """
+
+    """
+    pow(base, exp, mod=None)
+
+    - Return base to the power exp; if mod is present, return base to the power
+      exp, modulo mod (computed more efficiently than pow(base, exp) % mod).
+    - The two-argument from pow(base, exp) is equivalent to using power
+      operator base**exp.
+    """
+    print(pow(14, 2))
+
+    """
+    print(*objects, sep=' ', end='\n', file=None, flush=False)
+
+    - Print objects to the text stream file, seperated by sep and followed by
+      end.
+    - sep, end, file, and flush, if present, must be given as keyword
+      arguments.
+    - All non-keyword arguments are converted to strings like str() does and
+      written to the stream, seperated by sep and followed by end.
+    - Both sep and end must be strings; they can also be None, which means
+      using the default values.
+    - If no objects are given, print() will just write end.
+    - The file argument must be an object with a write(string) method; if it is
+      not present or None, sys.stdout will be used. Since printed arguments are
+      converted to text strings, print() cannot be used with binary file
+      objects. For these use file.write(...) instead.
+    """
+
+    """
+    class property(fget=None, fset=None, fdel=None, doc=None)
+
+    - Return a property attribute.
+    - fget is a function for getting an attribute value.
+    - fset is a function for setting an attribute value.
+    - fdel is a function for deleting an attribute value.
+    - And doc creates a docstring for the attribute.
+    """
+
+    class C:
+        def __init__(self):
+            self._x = None
+
+        def getx(self):
+            return self._x
+
+        def setx(self, value):
+            self._x = value
+
+        def delx(self):
+            del self._x
+
+        x = property(getx, setx, delx, "I'm the property!")
+
+    c = C()
+    c.x = 19
+    print(c.x)
+
+    """
+    - If c is an instance of C, c.x will invoke the getter, c.x = value will
+      invoke the setter, and del c.x the deleter.
+    - If give, doc will be the docstring of the property attribute. Otherwise,
+      the property will copy fget's docstring (if it exists).
+    - This makes it possible to create read-only properties easily using
+      property() as decorator
+    """
+
+    class Parrot:
+        def __init__(self):
+            self._voltage = 100000
+
+        @property
+        def voltage(self):
+            """Get current voltage."""
+            return self._voltage
+
+    """
+    - The property decorator turns the voltage() method into a "getter" for a
+      read-only attribute with the same name, and it sets the docstring for
+      voltage to "Get the current voltage."
+    - A property object has getter, setter, and deleter methods usable as
+      decorators that create a copy of the property with the corresponding
+      accessor function set to the decorated function.
+    """
+
+    class C:
+        def __init__(self):
+            self._x = None
+
+        @property
+        def x(self):
+            """I'm the 'x' property."""
+            return self._x
+
+        @x.setter
+        def x(self, value):
+            self._x = value
+
+        @x.deleter
+        def x(self):
+            del self._x
+
+    """
+    - This code is exactly equivalent to the first example.
+    - The returned property object also has attributes fget, fset, and fdel
+      corresponding to the constructor arguments.
+    """
+
+    """
+    __name__
+
+    - Attribute holding the name of the property. The name of the property can
+      be changed at runtime.
+    """
 
 if __name__ == "__main__":
     main()

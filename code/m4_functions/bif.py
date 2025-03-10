@@ -12,6 +12,9 @@ class People:
     def do_sth(cls):
         print("Engineers are doing something right now!")
 
+    def __repr__(self):
+        return f"Hello! You've just used my __repr__() method! I am {self.name}"
+
 
 def is_even(x):
     return x % 2 == 0
@@ -666,6 +669,154 @@ def main():
 
     - Attribute holding the name of the property. The name of the property can
       be changed at runtime.
+    """
+
+    """
+    range(stop)
+    range(start, stop, step=1)
+
+    - Rather than being a function, range is actually an immutable sequence
+      type.
+    """
+    print(list(range(0, 10)))
+
+    """
+    repr(object)
+
+    - Return a string containing a printable representation of an object.
+    - For many types, this function makes an attempt to return a string that
+      would yield an object with the same value when passed to eval();
+      Otherwise, the representation is a string enclosed in angle brackets that
+      contains the name of the type of the object together with additional
+      information often including the name and the address of the object.
+    - A class can control what this function returns for its instances by
+      defining a __repr__() method.
+    - If sys.displayhook() is not accessible, this function will raise
+      RuntimeError.
+    """
+
+    print(can)
+
+    """
+    reversed(seq)
+
+    - Return a reverse iterator.
+    - seq must be an object which has a __reversed__() method or supports the
+      sequence protocol (the __len__() method and the __getitem__() method with
+      integer arguments starting at 0).
+    """
+
+    bosses = ["Giant Thing", "Skull on Steroids", "Naked Death Lady 🫠",
+        "Angry Ladies"]
+
+    for boss in reversed(bosses):
+        print(boss)
+
+    """
+    round(number, ndigits=None)
+
+    - Return number rounded to ndigits precision after the decimal point.
+    - If ndigits is omitted or is None, it returns to the nearest integer to
+      its input.
+    """
+
+    print(round(2.72))
+
+    """
+    class slice(stop)
+    class slice(start, stop, step=None)
+
+    - Return a slice object representing the set of indices specified by
+      range(start, stop, step).
+    - The start and step arguments default to None.
+
+    start
+    stop
+    step
+
+    - Slice objects have read-only data attributes start, stop, and step which
+      merely return the argument values (or their default).
+    - They have no other explicit functionality.
+    """
+
+    print(slice(0, 5, 3))
+
+    """
+    sorted(iterable, /, *, key=None, reverse=False)
+
+    - Return a new sorted list from the items of iterable.
+    - Has two optional arguments which must be specified as keyword arguments.
+    - key specifies a function of one argument that is used to extract a
+      comparison key from each element in iterable (for example,
+      key=str.lower).
+    - The default value is None (compare the elements directly).
+    - reverse is a boolean value. If set to True, then the list elements are
+      sorted as if each comparison were reversed.
+    """
+
+    arr: list[int] = [1, 5, 2, 7, 9, 4, -3, 11, 0]
+
+    print(sorted(arr))
+
+    """
+    @staticmethod
+
+    - Transform a method into a static method.
+    - A static method does not receive an implicit first argument.
+    - A static method can be called either on the class (such as C.f()) or on
+      an instance (such as C().f())
+    """
+
+    class C:
+        @staticmethod
+        def f():
+            print("This is a static method")
+
+    C.f()
+
+    """
+    sum(iterable, /, start=0)
+
+    - Sums start and the items of an iterable from left to right and returns
+      the total.
+    - The iterable's items are normally numbers, and the start value is not
+      allowed to be a string.
+    - The preferred, fast way to concatenate a sequence of strings is by
+      calling "".join(sequence).
+    """
+
+    print(sum(range(1, 100)))
+
+    """
+    class super
+    class super(type, object_or_type=None)
+    
+    - Return a proxy object that delegates method calls to a parent or sibling
+      class of type.
+    - This is useful for accessing inherited methods that have been overridden
+      in a class.
+    - The object_or_type determines the method resolution order to be searched.
+      The search starts from the class right after the type.
+    """
+
+    """
+    class type(object)
+    class type(name, bases, dict, **kwds)
+
+    - With one argument, return the type of an object. The return value is a
+      type object and ggenerally the same object as returned by
+      object.__class__
+    - The isinstance() built-in function is recommended for testing the type of
+      an object, because it takes subclasses into account.
+    """
+
+    """
+    zip(*iterables, strict=False)
+
+    - Iterate over several iterables in parallel, producing tuples with an item
+      from each one.
+    - Returns an iterator of tuples, where the i-th tuple contains the i-th
+      element from each of the argument iterables.
     """
 
 if __name__ == "__main__":

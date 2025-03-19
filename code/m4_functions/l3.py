@@ -134,6 +134,7 @@ def main():
         """Calculate area for circle."""
         return 3.14 * radius ** 2
 
+    # Prompt the user
     shape_type = input("Please, provide a shape you want to calculate area: ")
 
     # if shape_type == "square":
@@ -164,7 +165,7 @@ def main():
             case _:
                 print("I don't know what {shape_type} is mate!")
 
-
+    # Calculate the area of the shape provided
     shape_handler(shape_type)
 
 

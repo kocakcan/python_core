@@ -119,7 +119,7 @@ result = 2 > 1 and 1 < 2
 print(type(result))
 
 # Boolean type is represented by bool class.
-# Anything can be converted to bool. This is important as it happens everytime in logical expressions albeit not explicitly, allowing us to simplify your code significantly.
+# Anything can be converted to bool. This is important as it happens everytime in logical expressions albeit not explicitly, allowing us to simplify our code significantly.
 if x == 0:
     print("x is zero!")
 elif x != 0:
@@ -131,7 +131,7 @@ if not x:
 elif x:
     print("x is not zero!")
 
-# Python will convert x to a bool by itself. So you only have to use the not boolean opeartor in the first case.
+# Python will convert x to a bool by itself. So you only have to use the not boolean operator in the first case.
 # This is because 0 will convert to False, while any number that is not 0 will convert to True.
 
 # Sometimes, in cases where you don't have a value, you may want to fill your variables with explicit meaning "there is nothing here".

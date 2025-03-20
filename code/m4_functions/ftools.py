@@ -92,8 +92,58 @@ from functools import cache, cached_property, lru_cache, partialmethod, singledi
     functools.update_wrapper(wrapper, wrapped, assigned=WRAPPER_ASSIGNMENTS,
     updated=WRAPPER_UPDATES)
 
-    - 
+    - Used to update a wrapper function to make it look more like the wrapped
+      function by copying attributes such as the function name, docstring, and
+      module name from the original function to the wrapper, thereby enhancing
+      the wrapper's metadata and improving introspection.
 """
+
+"""
+    @functools.wraps(wrapped, assigned=WRAPPER_ASSIGNMENTS,
+    updated=WRAPPER_UPDATES)
+
+    - Used to simplify the creation of wrapper functions by updating the
+      wrapper function to have the same metadata (such as the name and
+      docstring) as the wrapped function, ensuring that the wrapped function's
+      attributes are correctly preserved for better readability and
+      documentation.
+"""
+
+"""
+    partial Objects
+
+    - partial objects are callable objects created by partial(). They have
+      three read-only attributes:
+
+    partial.func - A callable object or function. Calls to the partial object
+    will be forwarded to func with new arguments and keywords.
+
+    partial.args - The leftmost positional arguments that will be prepended to
+    the positional arguments provided to a partial object call.
+
+    partial.keywords - The keyword arguments that will be supplied when the
+    partial object is called.
+
+    - partial objects are like function objects in that they are callable, weak
+      referenceable, and can have attributes.
+    - The __name__ and function.__doc__ attributes are not created
+      automatically.
+    - Also, partial objects defined in classes behave like static methods and
+      do not transform into bound methods during instance attribute look-up.
+"""
+
+from functools import wraps
+def my_decorator(f):
+    @wraps(f)
+    def wrapper(*args, **kwds):
+        print("Calling decorated function")
+        return f(*args, **kwds)
+    return wrapper
+
+@my_decorator
+def example():
+    """Docstring"""
+    print("Called example function")
 
 # class Negator:
 #     @singledispatchmethod
@@ -335,6 +385,11 @@ def main():
 
     n = Negator.neg(n)
     print(n)
+
+    example()
+
+    print(example.__name__)
+    print(example.__doc__)
 
 if __name__ == "__main__":
     main()

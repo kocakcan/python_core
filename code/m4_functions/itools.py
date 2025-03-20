@@ -6,7 +6,7 @@
 # functions or loops that truncate the stream.
 
 import operator
-from itertools import accumulate, compress, dropwhile, filterfalse, groupby, repeat, islice, chain, combinations, count, pairwise
+from itertools import accumulate, compress, dropwhile, filterfalse, groupby, permutations, product, repeat, islice, chain, combinations, count, pairwise, takewhile, zip_longest
 
 """
     itertools.accumulate(iterable[, function, *, initial=None])
@@ -294,11 +294,62 @@ def pairwise_(iterable):
         yield a, b
         a = b
 
-# TODO: Continue from here
+"""
+    itertools.permutations(iterable, r=None)
+
+    - Return successive r length permutations of elements from the iterable.
+    - If r is not specified or is None, then r defaults to the length of the
+      iterable and all possible full-length permutations are generated.
+"""
+
 """
     itertools.product(*iterables, repeat=1)
 
-    
+    - Cartesian product of the input iterables.
+    - Roughly equivalent to nested for-loops in a generator expression.
+"""
+
+"""
+    itertools.repeat(object, [, times])
+
+    - Make an iterator that returns object over and over again.
+    - Runs indefinitely unless the times argument is specified.
+"""
+
+"""
+    itertools.starmap(function, iterable)
+
+    - Make an iterator that computes the function using arguments obtained from
+      the iterable.
+"""
+
+"""
+    itertools.takewhile(predicate, iterable)
+
+    - Make an iterator that returns elements from the iterable as long as the
+      predicate is true.
+"""
+
+# Roughly equivalent to:
+def takewhile_(predicate, iterable):
+    # takewhile(lambda x: x < 5, [1, 4, 6, 3, 8]) -> 1 4
+    for x in iterable:
+        if not predicate(x):
+            break
+        yield x
+
+"""
+    itertools.tee(iterable, n=2)
+
+    - Return n independent iterators from a single iterable
+"""
+
+"""
+    itertools.zip_longest(*iterables, fillvalue=None)
+
+    - Make an iterator that aggregates elements from each of the iterables.
+    - If the iterables are of uneven length, missing values are filled-in with
+      fillvalue. If not specified, fillvalue defaults to None.
 """
 
 def main():
@@ -348,6 +399,17 @@ def main():
 
     print(list(pairwise("ABCDEFG")))
     print(list(pairwise_("ABCDEFG")))
+
+    print(list(permutations("ABCD", 2)))
+
+    print(list(product("ABCD", "xy")))
+
+    print(list(repeat(10, 3)))
+
+    print(list(takewhile_(lambda x: x < 5, [1, 4, 6, 3, 8])))
+    print(list(takewhile(lambda x: x < 5, [1, 4, 6, 3, 8])))
+
+    print(list(zip_longest("ABCD", "xy", fillvalue='-')))
 
     
 if __name__ == "__main__":

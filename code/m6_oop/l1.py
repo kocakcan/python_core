@@ -143,3 +143,99 @@ isinstance(cls, class_or_tuple) to return whether an object is an instance of a
 class or subclass. The super method is an essential part of Python that helps
 us work with parent classes.
 """
+
+"""
+Data/Information Hiding
+
+Data/information hiding is the principle of segregation of the design decisions
+in a computer program that are most likely to change, thus protecting other
+parts of the program from extensive modification if the design is changed. Data
+or information hiding is usually implemented with the help of access modifiers.
+Different programming languages can have a different number of access
+modifiers.
+
+Public: Everyone can access data
+Private: The access can be achieved only with the class
+Protected: Only class and subclass can access data
+
+However, in Python, there are no such concepts. Instead, there is a simulation
+of this mechanism. There are two types of access modifiers: protected and
+private.
+
+To denote an attribute as protected, you need to put one underscore _ before
+the name of an attribute, while to mark an attribute as private, put double
+underscore __.
+
+However, Python does not guarantee privacy, and you can still access them. For
+example, to access the protected variable, you need to put one underscore
+before the attribute name. But to access the private attribute, you need to do
+a little more work and access them in this syntax:
+obj._ClassName__attributeName
+
+If you try to access salary attributes by doing this, you will get
+AttributeError saying Employee object has no attribute.
+"""
+
+
+class Employee(Person):
+    def __init__(self, name, age, gender, salary, job_title):
+        super().__init__(name, age, gender)
+        self._job_title = job_title
+        self.__salary = salary
+
+
+obj = Employee("Can", 27, "Male", "$5000", "Software Engineer")
+print(obj._Employee__salary)
+# print(obj.__salary)
+
+"""
+Diamond Problem and Method Resolution Order
+
+Python supports multiple inheritances, which means that the base class can
+inherit from many parent classes. Diamond problem is an ambiguity that occurs
+when two classes, Left and Right, inherit from the Base class and another Child
+class inherits from both Left and Right.
+
+        Base
+     /       \
+    Left    Right
+    \         /
+       Child
+"""
+
+
+class Base:
+    def call(self):
+        print("Base Class")
+
+
+class Left(Base):
+    def call(self):
+        print("Left Class")
+
+
+class Right(Base):
+    def call(self):
+        print("Right Class")
+
+
+class Child(Left, Right):
+    pass
+
+
+obj2 = Child()
+obj2.call()
+
+"""
+There is not an ideal algorithm for choosing Right or Left. This question is
+called the diamond problem. Python knows which class call() method to invoke by
+method resolution order (MRO). In Python, both built-in and user-defined
+classes are inherited from the object class. And all the objects are instance
+of the object class. If it's not found, it's searched in the parent classes.
+The parent classes are searched from left to right order, and each class is
+searched once. For this example above, the order will be the following:
+
+    Child -> Left -> Right -> Base -> Object
+
+Python uses C3 linearization to determine this order.
+"""

@@ -111,7 +111,6 @@ try:
 except ValueError as ve:
     print(ve)
 
-
 """
 User-Defined Exceptions
 
@@ -143,18 +142,27 @@ Exception2, has already been caught. Order matters.
 """
 
 
-class Exception1(Exception):
+class FirstException(Exception):
     pass
 
 
-class Exception2(Exception):
+class SecondException(FirstException):
     pass
 
 
 # try:
-#     if isinstance(2, int):
-#         raise Exception2
-# except Exception1:
-#     print("Exception1 is caught")
-# except Exception2:
-#     print("Exception2 is caught")
+#     if isinstance("can", str):
+#         raise SecondException
+# except FirstException:
+#     raise FirstException("FirstException is caught")
+# except SecondException:
+#     raise SecondException("SecondException is caught")
+
+# To solve this place the SecondException before the FirstException
+try:
+    if isinstance(3.14, float):
+        raise SecondException
+except SecondException:
+    raise SecondException("SecondException is caught")
+except FirstException:
+    raise FirstException("FirstException is caught")

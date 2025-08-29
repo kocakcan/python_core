@@ -63,7 +63,6 @@ finally:
 # else:
 #     print("File is edited successfully!")
 #     fh.close()
-#
 # f = open("myfile.txt")
 #
 # try:
@@ -112,6 +111,7 @@ try:
 except ValueError as ve:
     print(ve)
 
+
 """
 User-Defined Exceptions
 
@@ -131,7 +131,7 @@ class InputError(Exception):
     pass
 
 
-raise InputError("Custom exception")
+# raise InputError("Custom exception")
 """
 Pitfall with Exceptions
 
@@ -151,10 +151,10 @@ class Exception2(Exception):
     pass
 
 
-try:
-    if isinstance(2, int):
-        raise Exception2
-except Exception1:
-    print("Exception1 is caught")
-except Exception2:
-    print("Exception2 is caught")
+# try:
+#     if isinstance(2, int):
+#         raise Exception2
+# except Exception1:
+#     print("Exception1 is caught")
+# except Exception2:
+#     print("Exception2 is caught")

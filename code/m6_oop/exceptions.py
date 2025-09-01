@@ -49,13 +49,77 @@ def runtime_error_example():
         print(f"RuntimeError occurred: {e}")
 
 
+# Raising exceptions
+def validate_age(age):
+    if age < 0:
+        raise ValueError("Age cannot be negative")
+    elif age > 150:
+        raise ValueError("You're kidding")
+    return age
+
+
+# Handling exceptions
+def handle_age_validation():
+    try:
+        age = validate_age(-5)
+    except ValueError as e:
+        print(f"Invalid age: {e}")
+    else:
+        print(f"Age is valid: {age}")
+    finally:
+        print("Age validation completed")
+
+
+# BaseException
+#  ├── SystemExit
+#  ├── KeyboardInterrupt
+#  ├── GeneratorExit
+#  └── Exception
+#       ├── StopIteration
+#       ├── ArithmeticError
+#       │    ├── FloatingPointError
+#       │    ├── OverflowError
+#       │    └── ZeroDivisionError
+#       ├── AssertionError
+#       ├── AttributeError
+#       ├── BufferError
+#       ├── EOFError
+#       ├── ImportError
+#       │    └── ModuleNotFoundError
+#       ├── LookupError
+#       │    ├── IndexError
+#       │    └── KeyError
+#       ├── MemoryError
+#       ├── NameError
+#       │    └── UnboundLocalError
+#       ├── OSError
+#       │    ├── BlockingIOError
+#       │    ├── ChildProcessError
+#       │    ├── ConnectionError
+#       │    ├── FileExistsError
+#       │    ├── FileNotFoundError
+#       │    ├── InterruptedError
+#       │    ├── IsADirectoryError
+#       │    ├── NotADirectoryError
+#       │    ├── PermissionError
+#       │    └── TimeoutError
+#       ├── ReferenceError
+#       ├── RuntimeError
+#       ├── SyntaxError
+#       │    └── IndentationError
+#       ├── SystemError
+#       ├── TypeError
+#       └── ValueError
+
+
 def main():
     # name_error_example()
     # value_error_example()
     # type_error_example()
     # syntax_error_example()
     # os_error_example()
-    runtime_error_example()
+    # runtime_error_example()
+    handle_age_validation()
 
 
 if __name__ == "__main__":

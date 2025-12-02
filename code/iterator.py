@@ -1,14 +1,14 @@
 class iterator:
-    def __init__(self, n):
-        self.n = n
+    def __init__(self, data):
+        self.data = data
         self.i = 0
 
     def __next__(self):
-        res = self.i
-        if res >= self.n:
+        if self.i >= len(self.data):
             raise StopIteration
-        self.i = res + 1
-        return res
+        value = self.data[self.i]
+        self.i += 1
+        return value
 
     def __iter__(self):
         return self

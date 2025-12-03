@@ -153,7 +153,7 @@ my_d = dict(name="Can", age=26)
 for i, k in my_d.items():
     print(i, k)
 
-print({i: i ** 2 for i in range(5)})
+print({i: i**2 for i in range(5)})
 
 payload = {
     "url": "https://www.google.com",

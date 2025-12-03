@@ -34,6 +34,13 @@ def main():
     dict_comprehension = {key: val for key, val in zip(names, ages)}
     print(f"I'm {dict_comprehension['Can']} years old.")
 
+    try:
+        print(dict_comprehension["Malenia"])
+    except KeyError:
+        print("No such key exists you fuck")
+
+    print(dict_comprehension.get("Malenia", "It doesn't exist"))
+
 
 if __name__ == "__main__":
     main()

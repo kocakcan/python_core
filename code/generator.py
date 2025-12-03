@@ -41,6 +41,10 @@ def main():
 
     print(dict_comprehension.get("Malenia", "It doesn't exist"))
 
+    name = "Can Kocak Kocak"
+    print(name.count("Kocak", 5))
+    print("".join(name))
+
 
 if __name__ == "__main__":
     main()

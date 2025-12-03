@@ -3,7 +3,7 @@
 
 # A dictionary is an associative array where arbitrary keys are mapped to
 # values. It's a mutable data type and may contain other data types and other
-# dicitionaries as a value.
+# dictionaries as a value.
 
 # A dictionary is represented with class dict.
 # There are two ways to create a dictionary:

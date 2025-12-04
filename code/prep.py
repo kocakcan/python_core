@@ -1,3 +1,8 @@
+def reverse_order(s):
+    s_list = s.split()
+    return " ".join(reversed(s_list))
+
+
 def main():
     d = {
         "name": "Can",
@@ -46,6 +51,11 @@ def main():
 
     # Dictionary keys should be hashable
     # int, float, string, tuple are all hashable types
+    text = "can kocak"
+    print(text.split(" "))
+
+    t = "a good     example"
+    print(reverse_order(t))
 
 
 if __name__ == "__main__":

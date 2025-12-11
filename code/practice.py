@@ -32,7 +32,7 @@ class Boss:
     def rewards(self):
         del self._rewards
 
-    def __str__(self):
+    def __repr__(self):
         return f"Name: {self._name} | Location: {self._location} | HP: {self._hp} | Souls: {self._souls} | Rewards: {self._rewards}"
 
 

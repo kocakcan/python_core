@@ -64,6 +64,7 @@ except ValueError:
 
 # count(x) - Return the number of times x appears in the list.
 import random
+
 numbers = [random.randint(0, 30) for i in range(0, 30)]
 print(numbers)
 number = int(input("Provide an integer to find its occurrence: "))

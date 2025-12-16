@@ -6,15 +6,15 @@ print(name.capitalize())
 boss = "Calameet"
 print(boss.casefold())
 
-# center(width, [, fillchar]) - Returns centered in a string of length widh. Padding is done using the specified fillchar (defaul is an ASCII space). The original string is returned if width is less than or equal to len(s).
+# center(width, [, fillchar]) - Returns centered in a string of length width. Padding is done using the specified fillchar (default is an ASCII space). The original string is returned if width is less than or equal to len(s).
 # It starts putting the character on the right first if length is one character more than the original string.
 lord = "Godfrey"
-print(lord.center(len(lord) + 4, '-'))
+print(lord.center(len(lord) + 4, "-"))
 
 # count(sub[, start[, end]]) - Returns the number of non-overlapping occurrences of substring sub in the range [start, end]. Optional arguments start and end are interpreted as in slice notation.
 # If sub is empty, returns the number of empty strings between characters which is the length of the string plus one.
 name = "Gideon Offnir"
-print(name.count(''))
+print(name.count(""))
 print(len(name))
 
 # encode(encoding="utf-8", errors="strict") - Returns the string encoded in bytes. errors controls how encoding errors are handled. If "strict" (the default), a UnicodeError exception is raised.
@@ -37,20 +37,22 @@ name = "Jonathan"
 print(name.find("athan"))
 print("athan" in name)
 
-# format(*args, **kwargs) - Perform a string formatting operation. The string on which this method is called can contaion literal text or replacement fields delimited by braces {}. Each replacement field contains either the numeric index of a positional argument, or the name of a keyword argument. Returns a copy of the string where each replacement field is replaced with string value of the corresponding argument.
+# format(*args, **kwargs) - Perform a string formatting operation. The string on which this method is called can contain literal text or replacement fields delimited by braces {}. Each replacement field contains either the numeric index of a positional argument, or the name of a keyword argument. Returns a copy of the string where each replacement field is replaced with string value of the corresponding argument.
 print("The sum of 1 + 2 is {}".format(1 + 2))
+
 
 # format_map(mapping, /) - Forward slash here indicates that mapping parameter should be passed as positional argument only. Similar to str.format(**mapping), except that mapping is used directly and not copied to a dict. This is useful if for example mapping is a dict subclass.
 class Default(dict):
     def __missing__(self, key):
         return key
 
+
 print("{name} was born in {country}".format_map(Default(name="Can", country="Turkey")))
 
 # index(sub[, start[, end]]) - Like find(), but raise ValueError when the substring is not found.
 name = "Seyfi"
 try:
-    name.index('e')
+    name.index("e")
 except ValueError as e:
     raise e
 
@@ -111,7 +113,7 @@ print(cpu)
 
 # ljust(width[, fillchar]) - Return the string left justified in a string of length width. Padding is done using the specified fillchar (default is an ASCII space). The original string is returned if width is less than or equal to len(s).
 name = "Can"
-print(name.ljust(10, 'x'))
+print(name.ljust(10, "x"))
 
 # lower() - Return a copy of the string with all cased characters converted to lowercase.
 status = "ALIVE"
@@ -130,8 +132,8 @@ print("TmpDirMixin".removesuffix("Tests"))
 
 # replace(old, new, count=-1) - Return a copy of the string with all occurrences of substring old replaced by new. If count is given, only the first count occurrences are replaced. If count is not specified or -1, then all occurrences are replaced.
 name = "Linird Skinird"
-print(name.replace('i', 'y'))
-print(name.replace('i', 'y', 2))
+print(name.replace("i", "y"))
+print(name.replace("i", "y", 2))
 
 # rfind(sub[, start[, end]]) - Return the highest index in the string where substring sub is found, such that sub is contained within s[start:end]. Optional arguments start and end are interpreted as in slice notation. Return -1 on failure.
 name = "Mert Caner Can"
@@ -144,12 +146,12 @@ print(name.rindex("acque"))
 
 # rjust(width[, fillchar]) - Return the string right justified in a string of length width. Padding is done using the specified fillchar (default is an ASCII space). The original string is returned if width is less than or equal to len(s).
 name = "Can"
-print(name.rjust(11, '#'))
+print(name.rjust(11, "#"))
 print(name.rjust(11))
 
 # rsplit(sep=None, maxsplit=-1) - Return a list of the words in the string, using sep as the delimiter string. If maxsplit is given, at most maxsplit splits are done, the rightmost ones. If sep is not specified or None, any whitespace string is a seperator. Except for splitting from the right, behaves like split().
 name = "Artorias"
-print(name.rsplit('r'))
+print(name.rsplit("r"))
 
 # rstrip([chars]) - Return a copy of the string with trailing characters removed. The chars argument is a string specifying the set of characters to be removed. If omitted or None, the chars argument defaults to removing whitespace. The chars argument is not a suffix; rather, all combinations of its values are stripped:
 print("     spacious        ".rstrip())
@@ -161,9 +163,9 @@ print("Monty Python".removesuffix(" Python"))
 
 # split(sep=None, maxsplit=-1) - Return a list of the words in the string, using sep as the delimiter string. If maxsplit is given, at most maxsplit splits are done (thus, the list will have the at most maxsplit + 1 elements). If maxsplit is not specified or -1, then there is no limit on the number of splits (all possible splits are made).
 # If sep is given, consecutive delimiters are not grouped together and are deemed to delimit empty strings (for example, "1, 2".split(',') returns ['1', '', '2']). The sep argument may consist of multiple characters as single delimiter.
-print("1,2,3".split(','))
-print("1,2,3".split(',', 1))
-print("1,2,,3,".split(','))
+print("1,2,3".split(","))
+print("1,2,3".split(",", 1))
+print("1,2,,3,".split(","))
 print("1<>2<>3<4".split("<>"))
 print("1 2 3".split())
 print("1 2 3".split(maxsplit=1))

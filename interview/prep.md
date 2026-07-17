@@ -19,7 +19,7 @@
 - [x] **Generators & iterators** — `yield`, laziness, `StopIteration`, memory efficiency vs lists, infinite generators
   - Practiced: `chunked()`, `filter_gen()`, `take()`, `pairwise()`, composed pipeline (filter → chunk)
 - [x] **Decorators** — `@decorator` = `func = decorator(func)`, `functools.wraps`, decorator factories (args), timing decorator exercise
-- [ ] **Context managers** — `with` statement, `__enter__`/`__exit__`, `contextlib.contextmanager`
+- [x] **Context managers** — `with` statement, `__enter__`/`__exit__`, `contextlib.contextmanager`
 - [ ] **GIL** — why it exists, threading vs multiprocessing for CPU-bound vs I/O-bound tasks
 
 ## Tier 2 — Likely (Anton: engineering judgment)

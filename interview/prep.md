@@ -24,11 +24,11 @@
 
 ## Tier 2 — Likely (Anton: engineering judgment)
 
-- [ ] **OOP fundamentals** — classes, inheritance, `@classmethod` vs `@staticmethod`, magic methods (`__repr__`, `__eq__`)
+- [x] **OOP fundamentals** — classes, inheritance, `@classmethod` vs `@staticmethod`, magic methods (`__repr__`, `__eq__`)
 - [ ] **SOLID principles** — covered conceptually (S/O/L/I/D with examples); have a real project story ready (Congress Summary / auth work)
-- [ ] **Exception handling best practices** — custom exceptions, try/except/finally patterns for data pipelines
-- [ ] **Testing basics** — `pytest` fundamentals, mocking
-- [ ] **Data structures & complexity** — list/dict/set/tuple trade-offs, Big-O of common operations
+- [x] **Exception handling best practices** — custom exceptions, try/except/finally patterns for data pipelines
+- [x] **Testing basics** — `pytest` fundamentals, mocking
+- [x] **Data structures & complexity** — list/dict/set/tuple trade-offs, Big-O of common operations
 
 ## Tier 3 — Possible, Lower Priority
 

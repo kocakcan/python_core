@@ -32,7 +32,7 @@
 
 ## Tier 3 — Possible, Lower Priority
 
-- [ ] **Async/await basics**
+- [x] **Async/await basics** — event loop, coroutines, `await` = suspension point, `gather`, blocking-call gotcha, vs threading/multiprocessing
 - [ ] **Type hints / Generics** — `TypeVar`, `Generic`, PEP 695 syntax (already covered, solid)
 - [ ] **Design patterns** — only if Anton steers toward architecture
 
